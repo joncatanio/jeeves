@@ -6,7 +6,7 @@
 #
 #	Configuration:
 #		NONE
-schedule = require "node-schedule"
+#schedule = require "node-schedule"
 
 module.exports = (robot) ->
 ###
