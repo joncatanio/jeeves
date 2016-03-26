@@ -12,13 +12,14 @@ schedule = require "node-schedule"
 module.exports = (robot) ->
    rule = new schedule.RecurrenceRule()
 #   rule.hour = 23
-   rule.minute = 1
-   rule.dayOfWeek = [new schedule.Range(0, 7)]
+#   rule.minute = 1
+   rule.second = 1
+   rule.dayOfWeek = [0, new schedule.Range(1, 6)]
 
    schedule.scheduleJob rule, () ->
 #      if robot.brain.data.notify420
-      robot.sendMessage process.env.HUBOT_GROUPME_ROOM_ID "420 bitches!"
       console.log "420!"
+      robot.sendMessage process.env.HUBOT_GROUPME_ROOM_ID "420 bitches!"
 
    robot.respond /ENABLE 420 NOTIFICATIONS/, (res) ->
       robot.brain.data.notify420 ?= {}
