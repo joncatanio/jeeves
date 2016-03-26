@@ -6,10 +6,10 @@
 #
 #	Configuration:
 #		NONE
-###
 schedule = require "node-schedule"
 
 module.exports = (robot) ->
+###
    rule = new schedule.RecurrenceRule()
 #   rule.hour = 23
 #   rule.minute = 1
@@ -21,6 +21,7 @@ module.exports = (robot) ->
       console.log "420!"
 #      robot.sendMessage process.env.HUBOT_GROUPME_ROOM_ID "420 bitches!"
 
+###
    robot.respond /ENABLE 420 NOTIFICATIONS/, (res) ->
       robot.brain.data.notify420 ?= {}
       robot.brain.data.notify420 = false
@@ -31,4 +32,3 @@ module.exports = (robot) ->
       robot.brain.data.notify420 ?= {}
       robot.brain.data.notify420 = true
       res.send "420 notifications disabled... Wow."
-###
