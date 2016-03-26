@@ -27,8 +27,8 @@ module.exports = (robot) ->
 #      robot.brain.data.notify420 = false
 #      res.send "420 notifications enabled! Blaze it!"
 
-   robot.respond /DISABLE 420 NOTIFICATIONS/, (res) ->
-      console.log res
-      robot.brain.data.notify420 ?= {}
-      robot.brain.data.notify420 = true
-      res.send "420 notifications disabled... Wow."
+#   robot.respond /DISABLE 420 NOTIFICATIONS/, (res) ->
+#      console.log res
+#      robot.brain.data.notify420 ?= {}
+#      robot.brain.data.notify420 = true
+#      res.send "420 notifications disabled... Wow."
