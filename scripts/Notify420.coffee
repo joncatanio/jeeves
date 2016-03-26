@@ -6,6 +6,7 @@
 #
 #	Configuration:
 #		NONE
+###
 schedule = require "node-schedule"
 
 module.exports = (robot) ->
@@ -20,14 +21,14 @@ module.exports = (robot) ->
 #      if robot.brain.data.notify420
       console.log "420!"
 #      robot.sendMessage process.env.HUBOT_GROUPME_ROOM_ID "420 bitches!"
+###
+   robot.respond /ENABLE 420 NOTIFICATIONS/, (res) ->
+      robot.brain.data.notify420 ?= {}
+      robot.brain.data.notify420 = false
+      res.send "420 notifications enabled! Blaze it!"
 
-#   robot.respond /ENABLE 420 NOTIFICATIONS/, (res) ->
-#      robot.brain.data.notify420 ?= {}
-#      robot.brain.data.notify420 = false
-#      res.send "420 notifications enabled! Blaze it!"
-
-#   robot.respond /DISABLE 420 NOTIFICATIONS/, (res) ->
-#      console.log res
-#      robot.brain.data.notify420 ?= {}
-#      robot.brain.data.notify420 = true
-#      res.send "420 notifications disabled... Wow."
+   robot.respond /DISABLE 420 NOTIFICATIONS/, (res) ->
+      console.log res
+      robot.brain.data.notify420 ?= {}
+      robot.brain.data.notify420 = true
+      res.send "420 notifications disabled... Wow."
