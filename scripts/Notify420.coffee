@@ -10,8 +10,8 @@ schedule = require "node-schedule"
 
 module.exports = (robot) ->
    rule = new schedule.RecurrenceRule()
-   rule.hour = 0
-   rule.minute = 5
+   rule.hour = 16
+   rule.minute = 20
    rule.dayOfWeek = [0, new schedule.Range(1, 6)]
 
    schedule.scheduleJob rule, () ->
