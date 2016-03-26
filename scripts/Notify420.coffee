@@ -6,7 +6,7 @@
 #
 #	Configuration:
 #		NONE
-
+###
 schedule = require "node-schedule"
 
 module.exports = (robot) ->
@@ -31,3 +31,4 @@ module.exports = (robot) ->
       robot.brain.data.notify420 ?= {}
       robot.brain.data.notify420 = true
       res.send "420 notifications disabled... Wow."
+###
