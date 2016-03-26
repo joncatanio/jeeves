@@ -22,10 +22,10 @@ module.exports = (robot) ->
 #      robot.sendMessage process.env.HUBOT_GROUPME_ROOM_ID "420 bitches!"
 
 ###
-   robot.respond /ENABLE 420 NOTIFICATIONS/, (res) ->
-      robot.brain.data.notify420 ?= {}
-      robot.brain.data.notify420 = false
-      res.send "420 notifications enabled! Blaze it!"
+#   robot.respond /ENABLE 420 NOTIFICATIONS/, (res) ->
+#      robot.brain.data.notify420 ?= {}
+#      robot.brain.data.notify420 = false
+#      res.send "420 notifications enabled! Blaze it!"
 
    robot.respond /DISABLE 420 NOTIFICATIONS/, (res) ->
       console.log res
