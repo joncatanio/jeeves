@@ -12,12 +12,14 @@ module.exports = (robot) ->
       # TextMessage {user, text, id, done, room}
       textMessage = res.message
       user = textMessage.user
-      console.log res
-      console.log res.match[2]
-      console.log res.match[3]
 
       min = res.match[2] || 1
       max = res.match[3] || 100
+
+      if parseInt(min, 10) >= parseInt(max, 10)
+         min = 1
+         max = 100
+
       randomNum = Math.floor(Math.random() * (max - min + 1)) + \
          parseInt(min, 10)
 
