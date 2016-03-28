@@ -64,7 +64,8 @@ module.exports = (robot) ->
          mesIndex = Math.floor(Math.random() * messages.length)
 
          room = robot.adapter.room_id
-         robot.messageRoom room, messages[mesIndex] + " " + memes[memeIndex]
+         robot.messageRoom room, messages[mesIndex]
+         robot.messageRoom room, memes[memeIndex]
 
    robot.respond /ENABLE 420 NOTIFICATIONS/, (res) ->
       robot.brain.data.notify420 ?= {}
