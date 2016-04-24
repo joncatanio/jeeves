@@ -32,7 +32,8 @@ memes = [
    "http://brandgeek.net/wp-content/uploads/2013/04/marijuana420.jpg",
    "https://i.warosu.org/data/cgl/img/0063/82/1352092647860.jpg",
    "http://i.imgur.com/2YdvmUK.jpg",
-   "http://i3.kym-cdn.com/photos/images/newsfeed/000/499/656/6c7.png"
+   "http://i3.kym-cdn.com/photos/images/newsfeed/000/499/656/6c7.png",
+   "http://crazycrackerz.com/wp-content/uploads/2010/03/R2K2.jpg"
 ]
 
 messages = [
