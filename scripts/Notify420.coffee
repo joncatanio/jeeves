@@ -14,7 +14,7 @@ memes = [
    "http://img.memecdn.com/also-nice-temperature-outside_o_5320763.webp",
    "http://i.imgur.com/F90nvZ2.jpg",
    "http://weknowmemes.com/wp-content/uploads/2013/04/high-dog-meme.jpg"
-   "http://i.imgur.com/ymU48Db.webm",
+   "http://i.imgur.com/ymU48Db.gif",
    "http://puu.sh/41mMg.gif",
    "http://puu.sh/41mQ5.gif",
    "https://i.imgur.com/n41tcFI.jpg",
