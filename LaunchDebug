@@ -1,0 +1,9 @@
+#!/bin/sh
+export HUBOT_ADAPTER="groupme"
+export HUBOT_GROUPME_ROOM_ID="15600682"
+export HUBOT_GROUPME_TOKEN="Exa0e7vaEPMi0lfh7SNz8nfHQNJ38i9b86qZ7kGP"
+export HUBOT_GROUPME_BOT_ID="4e06098e11bbe85170702c5fd8"
+
+export HUBOT_ALIAS="/"
+
+./bin/hubot -a groupme

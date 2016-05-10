@@ -1,0 +1,9 @@
+#!/bin/sh
+echo Restarting Nostalgia
+heroku restart -a jeeves-chatbot
+
+echo Restarting The Jedi Council
+heroku restart -a jeeves-chatbot-2
+
+echo Restarting Testing
+heroku restart -a jeeves-chatbot-testing

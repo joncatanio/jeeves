@@ -66,7 +66,8 @@ memes = [
    "http://31.media.tumblr.com/b88ae453d22e4eb07dad427f389880c8/tumblr_mruk5jaB7j1sp8x0mo1_250.gif",
    "http://33.media.tumblr.com/8e481ed0284de7cc45570785837eedf5/tumblr_n8melyX3IE1r07rtgo1_250.gif",
    "https://49.media.tumblr.com/2fb5b40a99a567a498abd39c422d6cfd/tumblr_npm11x6jgl1rl7arbo1_500.gif",
-   "http://i1.kym-cdn.com/photos/images/newsfeed/000/946/725/754.gif"
+   "http://i1.kym-cdn.com/photos/images/newsfeed/000/946/725/754.gif",
+   "https://i.imgur.com/DEX7KG3.gifv"
 ]
 
 messages = [
