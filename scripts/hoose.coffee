@@ -41,6 +41,15 @@ module.exports = (robot) ->
       if robot.brain.data.hoose
          res.send "https://i.groupme.com/1080x724.png.d5319c79d05344bd8b46a04d0b854a03.large"
 
+   robot.respond /hoose bomb/i, (res) ->
+      if robot.brain.data.hoose
+         res.send "http://cs5.pikabu.ru/images/big_size_comm/2015-02_2/14235830609123.jpg"
+         res.send "http://i.imgur.com/MjUjqz7.jpg"
+         res.send "https://i.groupme.com/1080x720.png.c49b818ad57c49f0a4f8504e176328b7.large"
+         res.send "https://i.groupme.com/1080x717.png.75cd2fd3e41e4ebe9c11f5019acb710e.large"
+         res.send "https://i.groupme.com/1080x722.png.941b83322d284c89aade4638771580cd.large"
+         res.send "https://i.groupme.com/1080x724.png.d5319c79d05344bd8b46a04d0b854a03.large"
+
    robot.respond /ENABLE HOOSE/, (res) ->
       robot.brain.data.hoose ?= {}
       robot.brain.data.hoose = true

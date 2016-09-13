@@ -286,6 +286,7 @@ module.exports = (robot) ->
     for user, userData of robot.brain.users()
       karmaUserList.push userData.user_id
 
+    # Ensure any users who left don't stick around. Will optimize later.
     karma.purgeBadData(karmaUserList)
     parseDataTop = parseListMessage(msg, "Karma Ranks Top", karma.top)
     parseDataBottom = parseListMessage(msg, "Karma Ranks Bottom", karma.bottom)
