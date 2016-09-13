@@ -54,5 +54,5 @@ module.exports = (robot) ->
             "Fuck you too pussy",
             "U wot bitch"
    ]
-   robot.hear /(Jeeves )?(fuck|fuk) (you|u)( Jeeves)?/i, (res) ->
+   robot.hear /(Jeeves (fuck|fuk) (you|u)|(fuck|fuk) (you|u) Jeeves)/i, (res) ->
       res.send res.random sassy
