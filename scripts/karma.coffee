@@ -42,7 +42,13 @@ class Karma
       "gained a level!",
       "is a boss!",
       "is going to the top!",
-      "found a green mushroom!"
+      "found a green mushroom!",
+      "*fist bumb*",
+      "is the new God!",
+      "can do anything!",
+      "is aight I guess...",
+      "here you go :)",
+      "is impressive, hmmm..."
     ]
 
     @decrement_responses = [
@@ -51,7 +57,12 @@ class Karma
       "lost a life.",
       "lost a level.",
       "got owned",
-      "got slapped on the hand"
+      "got slapped on the hand",
+      "got punked!",
+      "is a loser!",
+      "lol sorry bro",
+      "is dead to me.",
+      "later skater!"
     ]
 
     @robot.brain.on 'loaded', =>
@@ -85,7 +96,8 @@ class Karma
   sort: ->
     s = []
     for key, val of @cache
-      s.push({ name: key, karma: val })
+      if key isnt null
+         s.push({ name: key, karma: val })
     s.sort (a, b) -> b.karma - a.karma
 
   top: (n = 5) =>
@@ -223,7 +235,6 @@ module.exports = (robot) ->
       allUsers.push new User userData.name, userData.nickname, userData.user_id unless userData.name is "system"
 
     recipient = null
-    console.log allUsers
     for user in allUsers
       if user.userId is usrId
         recipient = user
@@ -245,8 +256,6 @@ module.exports = (robot) ->
       verbiage[0] = verbiage[0].concat(" ", count.toString())
     for item, rank in rankingFunction(count)
       user = findUser(item.name)
-      console.log item
-      console.log user
       verbiage.push "#{rank + 1}. #{user.username} - #{item.karma}" unless user is null
     msg.send verbiage.join("\n")
 
