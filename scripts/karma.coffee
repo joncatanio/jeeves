@@ -108,6 +108,11 @@ class Karma
     sorted = @sort()
     sorted.slice(-n).reverse()
 
+  purgeBadData: (userList) =>
+    for key, val of @cache
+      if key not in userList
+        @kill(key)
+
 class User
   constructor: (username, nickname, userId) ->
     @username = username
@@ -276,6 +281,12 @@ module.exports = (robot) ->
   # instead of best/worst, count is set to 5 by default.
   ###
   robot.respond /karmaranks/i, (msg) ->
+    karmaUserList = []
+    karmaUserList.push '530' # push Jeeves on.
+    for user, userData of robot.brain.users()
+      karmaUserList.push userData.user_id
+
+    karma.purgeBadData(karmaUserList)
     parseDataTop = parseListMessage(msg, "Karma Ranks Top", karma.top)
     parseDataBottom = parseListMessage(msg, "Karma Ranks Bottom", karma.bottom)
 
