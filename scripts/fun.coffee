@@ -8,6 +8,8 @@
 #	I see you - The horse sees all
 #	Womp - The classic manatee
 #  REEEE - Posts the frog
+#  Who is your creator - Posts a string
+#  Smoke screen - Links an image of smoke
 #
 # Group:
 #	All
@@ -43,6 +45,9 @@ module.exports = (robot) ->
 
    robot.respond /who is (yo)?ur creator/, (res) ->
       res.send "The great developer Noj!"
+
+   robot.hear /smoke screen!*/i, (res) ->
+      res.send "http://i.imgur.com/LDlOjKv.jpg"
 
 # Hidden Easter Eggs.
    sassy = [
