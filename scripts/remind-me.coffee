@@ -9,9 +9,6 @@
 
 schedule = require "node-schedule"
 
-# Map of current cron jobs scheduled to run
-reminders = {}
-
 MINUTE_MAX = 59
 HOUR_MAX = 23
 DAY_OF_MONTH_MAX = 31
@@ -59,6 +56,9 @@ parseReminder = (reminder) ->
    return null
 
 module.exports = (robot) ->
+   # Map of current cron jobs scheduled to run
+   robot.brain.data.reminders = {}
+
    # Reminder: month day [, year [ hour [ minute ] ] ]
    # (text): (Jan - Dec) (1-31) [, (current year - beyond) [ (0-23) [ (1-12) ] ] ]
    robot.respond /remind me(?: about)? (.+):? ([a-zA-Z]{3,9}) ([0-9]{1,2})(?:st|nd|rd|th)?,?( [0-9]{4})?( [0-9]{1,2})?( [0-9]{1,2})?/, (res) ->
@@ -76,7 +76,7 @@ module.exports = (robot) ->
       hour = if isNaN(+res.match[5]) then 8 else +res.match[5]
       minute = if isNaN(+res.match[6]) then 0 else +res.match[6]
 
-      if reminders[reminder]?
+      if robot.brain.data.reminders[reminder]?
          res.send "Job already scheduled. Kill the reminder and reschedule to replace."
          return
       else if not minute? or minute > MINUTE_MAX or minute < 0
@@ -109,16 +109,20 @@ module.exports = (robot) ->
       scheduledJob = schedule.scheduleJob rule, () ->
          robot.messageRoom robot.adapter.room_id, reminder
          if rule not instanceof schedule.RecurrenceRule
-            delete reminders[reminder]
+            delete robot.brain.data.reminders[reminder]
 
-      reminders[reminder] = new Reminder reminder, rule, scheduledJob
-      res.send "Reminder \"" + reminder + "\" scheduled for " + parseReminder(reminders[reminder])
+      robot.brain.data.reminders[reminder] = new Reminder reminder, rule, scheduledJob
+      res.send "Reminder \"" + reminder + "\" scheduled for " + parseReminder(robot.brain.data.reminders[reminder])
 
    robot.respond /list reminders/, (res) ->
       message = []
       room = robot.adapter.room_id
 
-      for reminder, reminderObj of reminders
+      if Object.keys(robot.brain.data.reminders).length == 0
+         res.send "There are currently no scheduled reminders."
+         return
+
+      for reminder, reminderObj of robot.brain.data.reminders
          readableDate = parseReminder(reminderObj)
          if message.length >= 5
             robot.messageRoom room, message.join("\n")
@@ -132,11 +136,15 @@ module.exports = (robot) ->
 
    robot.respond /remove reminder (.+)/, (res) ->
       reminder = res.match[1].toLowerCase()
-      reminderObj = reminders[reminder]
+      reminderObj = robot.brain.data.reminders[reminder]
 
       if reminderObj?
          reminderObj.job.cancel()
-         delete reminders[reminder]
+         delete robot.brain.data.reminders[reminder]
          res.send "Reminder \"" + reminderObj.description + "\" has been removed."
       else
          res.send "Reminder to remove was not found."
+
+   robot.respond /purge reminders/, (res) ->
+      for job, jobObj of schedule.scheduledJobs
+         jobObj.cancel()
