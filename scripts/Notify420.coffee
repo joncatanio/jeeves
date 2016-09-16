@@ -2,7 +2,7 @@
 #		Hilarious 420 notifier... cuz stoners crack us the fuck up.
 #
 #	Dependencies:
-#		NONE
+#		node-schedule
 #
 #	Configuration:
 #		NONE
