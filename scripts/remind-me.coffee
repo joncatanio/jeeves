@@ -145,6 +145,6 @@ module.exports = (robot) ->
       else
          res.send "Reminder to remove was not found."
 
-   robot.respond /purge reminders/, (res) ->
-      for job, jobObj of schedule.scheduledJobs
-         jobObj.cancel()
+#   robot.respond /purge reminders/, (res) ->
+#      for job, jobObj of schedule.scheduledJobs
+#         jobObj.cancel()
