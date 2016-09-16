@@ -138,7 +138,7 @@ module.exports = (robot) ->
       reminder = res.match[1].toLowerCase()
       reminderObj = robot.brain.data.reminders[reminder]
 
-      if reminderObj?
+      if reminder of robot.brain.date.reminders
          reminderObj.job.cancel()
          delete robot.brain.data.reminders[reminder]
          res.send "Reminder \"" + reminderObj.description + "\" has been removed."
