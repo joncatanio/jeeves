@@ -144,10 +144,3 @@ module.exports = (robot) ->
          res.send "Reminder \"" + reminderObj.description + "\" has been removed."
       else
          res.send "Reminder to remove was not found."
-
-#   robot.respond /purge reminders/, (res) ->
-#      for job, jobObj of schedule.scheduledJobs
-#         jobObj.cancel()
-
-   robot.respond /kill reminder memory/, (res) ->
-      robot.brain.data.reminders = {}
