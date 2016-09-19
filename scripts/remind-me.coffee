@@ -148,3 +148,6 @@ module.exports = (robot) ->
 #   robot.respond /purge reminders/, (res) ->
 #      for job, jobObj of schedule.scheduledJobs
 #         jobObj.cancel()
+
+   robot.respond /kill reminder memory/, (res) ->
+      robot.brain.data.reminders = {}
